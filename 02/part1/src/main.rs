@@ -27,8 +27,8 @@ fn get_char(input: &String) -> char {
 }
 
 fn get_password(input: &String) -> String {
-    let char_regex: Regex = Regex::new(r" [a-zA-Z]*$").unwrap();
-    let range_string = get_regex_match(&char_regex, input).replace(' ', "");
+    let char_regex: Regex = Regex::new(r"[a-zA-Z]*$").unwrap();
+    let range_string = get_regex_match(&char_regex, input);
     return range_string;
 }
 

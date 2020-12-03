@@ -27,8 +27,8 @@ fn get_char(input: &String) -> char {
 }
 
 fn get_password(input: &String) -> String {
-    let char_regex: Regex = Regex::new(r" [a-zA-Z]*$").unwrap();
-    let range_string = get_regex_match(&char_regex, input).replace(' ', "");
+    let char_regex: Regex = Regex::new(r"[a-zA-Z]*$").unwrap();
+    let range_string = get_regex_match(&char_regex, input);
     return range_string;
 }
 
@@ -37,7 +37,6 @@ fn is_password_valid(password: &String) -> bool {
     let required = get_char(password);
     let password = get_password(password);
     let password_chars: Vec<char> = password.chars().collect();
-    println!("{:#?}", password_chars);
     let pos_1_match = password_chars[first - 1] == required;
     let pos_2_match = password_chars[second - 1] == required;
     return pos_1_match ^ pos_2_match;
